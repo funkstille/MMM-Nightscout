@@ -2,7 +2,7 @@ Module.register("MMM-Nightscout", {
   // Default module config.
   defaults: {
     baseUrl: null,
-    securitytoken: true,
+    securitytoken: false,
     token: "xxxxxxxx",
     debug: false,
     colorEnabled: false,
