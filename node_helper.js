@@ -23,7 +23,11 @@ module.exports = NodeHelper.create({
       if (self.config.baseUrl) {
         let options = {
           method: "GET",
-          uri: this.config.baseUrl + "/api/v1/status",
+          if (self.config.securitytoken) {
+            uri: this.config.baseUrl + "/api/v1/status" + "?token=" + this.config.token,
+            } else {
+            uri: this.config.baseUrl + "/api/v1/status",
+          }
           headers: {
             Accept: "application/json"
           }
