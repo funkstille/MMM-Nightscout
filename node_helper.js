@@ -67,10 +67,15 @@ module.exports = NodeHelper.create({
       if (self.config.baseUrl) {
         let options = {
           method: "GET",
-          uri:
+            if (self.config.securitytoken) {
+            uri: this.config.baseUrl + "/api/v1/entries.json?count=" +
+            this.config.chartHours * 12 + "?token=" + this.config.token,
+            } else {
+            uri:
             this.config.baseUrl +
             "/api/v1/entries.json?count=" +
             this.config.chartHours * 12
+            }
         };
 
         request(options)
